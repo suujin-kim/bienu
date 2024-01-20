@@ -1,0 +1,232 @@
+/* 커버 페이지 스타일*/
+
+body {
+    background-image: url('background.jpg'); 
+    background-size: cover;
+    backdrop-filter: blur(2px); /* 흐림 정도를 조절하세요 */
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.cover-container {
+    width: 600px;
+    height: 800px;
+    text-align: center;
+    background-color: rgba(215, 215, 215, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    max-width: 100px; /* 로고 이미지의 최대 너비를 조절하세요 */
+    margin-bottom: 10px;
+    transform: translateY(10px); 
+}
+
+.test-title {
+    color: #0051f4; /* 텍스트 색상을 파란색(#3366cc)으로 변경하세요 */
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.routin-title {
+    color: #000000; /* 텍스트 색상을 파란색(#3366cc)으로 변경하세요 */
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    color: #000; /* 원하는 색상으로 설정하세요 */
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.cover-image {
+    max-width: 100%; /* 사진의 최대 너비를 조절하세요 */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.participants-count {
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    color: #656565; /* 텍스트 색상을 회색(#555)으로 변경하세요 */
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.start-button {
+    font-family: 'Arial', sans-serif;
+    padding: 10px 20px;
+    font-size: 25px;
+    background-color: #1a35ff; /* 시작 버튼의 배경 색상을 조절하세요 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.undertitle {
+    color: #5a5a5a; /* 원하는 색상으로 설정하세요 */
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* 커버페이지 스타일 마무리 - 질문 스타일 시작*/
+
+
+.question-container {
+    width: 600px;
+    height: 800px;
+    text-align: center;
+    background-color: rgba(215, 215, 215, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#questionNumber {
+    color: #0051f4; /* 문제 번호의 텍스트 색상을 파란색(#3366cc)으로 변경 */
+    font-size: 40px; /* 문제 번호의 글꼴 크기를 24px로 변경 */
+    font-weight: bold; /* 문제 번호의 글꼴을 굵게 설정 */
+}
+
+.question {
+    margin-bottom: 60px;
+    font-size: 30px; /* 폰트 크기를 조절하세요 */
+    background-color: rgba(215, 215, 215, 0);
+    max-width: 500px; /* 최대 넓이 설정 */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    word-wrap: break-word; /* 긴 단어가 넘칠 경우 줄바꿈 */
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+
+.choice-label {
+    margin-bottom: 50px;
+}
+
+.undertitle2 {
+    color: #5a5a5a; /* 원하는 색상으로 설정하세요 */
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
+.container {
+    text-align: center;
+    background-color: rgba(215, 215, 215, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+button {
+    font-size: 20px;
+    background-color: #1a35ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+button2 {
+    font-size: 20px;
+    background-color: #1a35ff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 20px;
+    width: 500px;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #0008ff;
+}
+
+/* 결과 페이지 */
+.result-container {
+    width: 600px;
+    height: 800px;
+    text-align: center;
+    background-color: rgba(215, 215, 215, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.choice-button {
+    font-size: 20px;
+    background-color: #1a35ff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 20px;
+    width: 500px;
+}
+
+.choice-button:hover {
+    background-color: #ffffff;
+    color: #0008ff;
+}
+
+
+
+.title {
+    color: #0051f4;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#resultText {
+    font-size: 25px; /* 결과 텍스트 폰트 크기 */
+    margin-top: 25px;
+    margin-bottom: 30px; /* 텍스트 아래 여백 */
+}
+
+
+#resultImage {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px; /* 이미지 위 여백 */
+}

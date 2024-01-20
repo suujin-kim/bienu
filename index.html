@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is your skin type?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!--커버 페이지 내용 시작-->
+    <div id="cover-container" class="cover-container">
+        <img class="logo" src="logo.png" alt="로고 이미지">
+        <h1 class="test-title">What is your skin type?</h1>
+        <p class="subtitle">Discover the perfect skincare routine for you.</p>
+        <img class="cover-image" src="cover_image.jpg" alt="커버 사진" id="coverImage">
+        <div class="participants-count" id="participantsCount">Up to now, 0 people have participated in this test.</div>
+        <button class="start-button" onclick="startTest()">START</button>
+        <p class="undertitle">with BIENU GLOBAL</p>
+    </div>
+    <!--커버 페이지 내용 끝-->
+
+    <!--질문 페이지 내용 시작-->
+    <div id="question-container" class="question-container" style="display: none;">
+        <div class="question-page-logo">
+            <img class="logo" src="logo.png" alt="로고 이미지">
+        </div>
+        <div class="question">
+            <p id="questionNumber"></p>
+            <p id="questionText"></p>
+            <div class="choices" id="choices"></div>
+            <p class="undertitle2">with BIENU GLOBAL</p>
+        </div>
+    </div>
+    <!--질문 페이지 내용 끝-->
+
+    <!--결과 페이지 내용 시작-->
+    <div id="result-container" class="result-container" style="display: none;">
+        <div class="question-page-logo">
+            <img class="logo" src="logo.png" alt="로고 이미지">
+        </div>
+        <h1 class="title">Your Skin Type Result</h1>
+        <p id="resultText"></p>
+        <h1 class="routin-title">당신에게 꼭 맞는 스킨케어 루틴이에요</h1>
+        <img id="resultImage" alt="Skin Type Image">
+        <button id="infoButton" class="info-button">buy now!</button>
+
+    </div>
+
+    <style>
+        /* 버튼 스타일 추가 */
+        .info-button {
+            font-size: 25px; /* 버튼의 폰트 크기 조절 */
+            padding: 15px 30px; /* 버튼의 내부 여백을 조절하여 크기 조절 */
+            border-radius: 20px;
+        }
+    </style>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 이벤트 리스너 등록
+            var infoButton = document.getElementById("infoButton");
+            if (infoButton) {
+                infoButton.addEventListener("click", redirectToInfoPage);
+            }
+        });
+    
+        function redirectToInfoPage() {
+            // 버튼 클릭 시 링크로 이동
+            window.location.href = "https://xn--vg1b07tv4f.com/";
+        }
+    </script>
+
+</body>
+</html>
