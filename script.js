@@ -17,11 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 var resultImages = {
-    "일반건성피부": "image_normal_dry_skin.jpg",
-    "지성여드름피부": "image_oily_acne_prone_skin.jpg",
-    "알러지홍조피부": "image_sensitive_redness_skin.jpg",
-    "노화악건성피부": "image_aging_dry_skin.jpg",
-    "잡티기미피부": "image_uneven_pigmented_skin.jpg"
+    "Dry skin" : "image_normal_dry_skin.jpg",
+    "Oil skin": "image_oily_acne_prone_skin.jpg",
+    "Acne-prone skin": "image_sensitive_redness_skin.jpg",
+    "Aging skin": "image_aging_dry_skin.jpg",
+    "Blemish-prone skin": "image_uneven_pigmented_skin.jpg"
 };
 
 var currentQuestionIndex = 0;
@@ -29,34 +29,98 @@ var userAnswers = [];
 
 var questions = [
     {
-        question: "얼굴을 세척한 후 몇 시간이 지난 후에 피부가 유분지게 느껴지나요?",
-        choices: ["1. 몇 시간 후에 유분이 덜 느껴짐", "2. 중간 정도로 유분지게 느껴짐", "3. 빠르게 유분지게 느껴짐"]
+        question: "How does your skin feel a few hours after washing your face?",
+        choices: [
+            "1. Less oily than before",
+            "2. Moderately oily",
+            "3. Oily and shiny",
+            "4. Extremely oily"
+        ]
     },
     {
-        question: "피부 톤은 어떤가요?",
-        choices: ["1. 매우 밝은 피부 톤", "2. 중간 정도의 피부 톤", "3. 짙은 피부 톤"]
+        question: "What is your skin tone?",
+        choices: [
+            "1. Very light",
+            "2. Medium",
+            "3. Tan",
+            "4. Dark"
+        ]
     },
     {
-        question: "여드름이 나타나는 빈도는 어떤가요?",
-        choices: ["1. 거의 나타나지 않음", "2. 가끔 나타남", "3. 자주 나타남"]
+        question: "How often do you experience breakouts or acne?",
+        choices: [
+            "1. Rarely",
+            "2. Occasionally",
+            "3. Frequently",
+            "4. Almost constantly"
+        ]
     },
     {
-        question: "피부에 홍조가 나타나나요?",
-        choices: ["1. 거의 나타나지 않음", "2. 가끔 나타남", "3. 자주 나타남"]
+        question: "Does your skin show signs of redness or inflammation?",
+        choices: [
+            "1. Rarely",
+            "2. Occasionally",
+            "3. Frequently",
+            "4. Almost constantly"
+        ]
     },
     {
-        question: "해에 노출되었을 때 피부 반응은 어떤가요?",
-        choices: ["1. 거의 자극을 받지 않음", "2. 가끔 화상이 나거나 붉어짐", "3. 쉽게 화상이 나거나 붉어짐"]
+        question: "How does your skin react to sun exposure?",
+        choices: [
+            "1. Rarely gets sunburned",
+            "2. Occasionally gets sunburned",
+            "3. Easily gets sunburned",
+            "4. Very sensitive to sun exposure"
+        ]
     },
     {
-        question: "당신은 피부에 제품을 사용할 때 어떤 특징이 있나요?",
-        choices: ["1. 건성에 가깝다", "2. 중성에 가깝다", "3. 지성에 가깝다"]
+        question: "How would you describe your skin when using skincare products?",
+        choices: [
+            "1. Tends to be dry",
+            "2. Balanced/Normal",
+            "3. Tends to be oily",
+            "4. Very oily"
+        ]
     },
     {
-        question: "피부에 민감한 반응이 나타나나요?",
-        choices: ["1. 거의 나타나지 않음", "2. 가끔 나타남", "3. 자주 나타남"]
+        question: "Does your skin show sensitivity reactions to products?",
+        choices: [
+            "1. Rarely",
+            "2. Occasionally",
+            "3. Frequently",
+            "4. Almost constantly"
+        ]
+    },
+    {
+        question: "How does your skin feel a few hours after washing your face?",
+        choices: [
+            "1. Less oily than before",
+            "2. Moderately oily",
+            "3. Oily and shiny",
+            "4. Extremely oily"
+        ]
+    },
+    {
+        question: "What is your age group?",
+        choices: [
+            "1. Under 25",
+            "2. 25 - 35",
+            "3. 36 - 45",
+            "4. 46 and above"
+        ]
+    },
+    {
+        question: "How would you describe your daily water intake?",
+        choices: [
+            "1. Insufficient",
+            "2. Moderate",
+            "3. Above average",
+            "4. Excellent"
+        ]
     }
 ];
+
+
 
 function startTest() {
     var coverContainer = document.getElementById("cover-container");
@@ -76,11 +140,24 @@ function showNextQuestion() {
     var questionContainer = document.getElementById("question-container");
     if (questionContainer) {
         if (currentQuestionIndex < questions.length) {
+            updateProgressBar(); // 진행률 업데이트
             var currentQuestion = questions[currentQuestionIndex];
             displayQuestion(currentQuestion);
         } else {
-            showResult();
+            // 질문이 끝나면 로딩 화면을 나타내고 3초 후에 결과 페이지 표시
+            showLoadingScreen();
+            setTimeout(function () {
+                showResult();
+            }, 3000);
         }
+    }
+}
+
+function updateProgressBar() {
+    var progressBar = document.getElementById("progressBar");
+    if (progressBar) {
+        var progress = (currentQuestionIndex / questions.length) * 100;
+        progressBar.style.width = progress + "%";
     }
 }
 
@@ -90,7 +167,7 @@ function displayQuestion(question) {
     var choicesElement = document.getElementById("choices");
 
     if (questionNumberElement) {
-        questionNumberElement.textContent = "Q " + (currentQuestionIndex + 1);
+        questionNumberElement.textContent = "Q. " + (currentQuestionIndex + 1);
     }
 
     if (questionTextElement) {
@@ -124,6 +201,7 @@ function selectChoice(choice) {
 function showResult() {
     var questionContainer = document.getElementById("question-container");
     var resultContainer = document.getElementById("result-container");
+    var loadingContainer = document.getElementById("loading-container");
 
     if (questionContainer) {
         questionContainer.style.display = "none";
@@ -145,26 +223,69 @@ function showResult() {
             resultImageElement.src = imagePath;
         }
     }
+
+    showLoadingScreen(loadingContainer);
+}
+
+function showLoadingScreen() {
+    var loadingContainer = document.getElementById("loading-container");
+    if (loadingContainer) {
+        loadingContainer.style.display = "flex";
+        // 로딩이 완료된 후에 로딩 화면을 감춤
+        setTimeout(function () {
+            hideLoadingScreen();
+        }, 3000);
+    }
+}
+
+function hideLoadingScreen() {
+    var loadingContainer = document.getElementById("loading-container");
+    if (loadingContainer) {
+        loadingContainer.style.display = "none";
+        loadingContainer.style.backgroundColor = "transparent"; /* 로딩 완료 후 투명하게 설정 */
+    }
 }
 
 function calculateResult() {
-    var totalA = userAnswers.filter(answer => answer.includes('1')).length;
-    var totalB = userAnswers.filter(answer => answer.includes('2')).length;
-    var totalC = userAnswers.filter(answer => answer.includes('3')).length;
+    var totalScores = [0, 0, 0, 0, 0];
 
-    if (totalA > totalB && totalA > totalC) {
-        return "일반건성피부";
-    } else if (totalB > totalA && totalB > totalC) {
-        return "지성여드름피부";
-    } else if (totalC > totalA && totalC > totalB) {
-        return "알러지홍조피부";
-    } else if (totalA === totalB && totalA === totalC) {
-        return "판단 불가능";
-    } else {
-        if (totalA === 2 && totalB === 2 && totalC === 2) {
-            return "노화악건성피부";
-        } else {
-            return "잡티기미피부";
+    for (var i = 0; i < userAnswers.length; i++) {
+        switch (userAnswers[i]) {
+            case "1":
+                totalScores[0]++;
+                break;
+            case "2":
+                totalScores[1]++;
+                break;
+            case "3":
+                totalScores[2]++;
+                break;
+            case "4":
+                totalScores[3]++;
+                break;
+            default:
+                break;
         }
+    }
+
+    var maxScoreIndex = totalScores.indexOf(Math.max(...totalScores));
+    var skinTypes = ["Dry skin", "Aging skin", "Oil skin", "Acne-prone skin", "Blemish-prone skin"];
+
+    return skinTypes[maxScoreIndex];
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    // 페이지 로딩 후 맨 위로 스크롤
+    window.scrollTo(0, 0);
+});
+
+function goToPreviousQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        updateProgressBar();
+        showNextQuestion();
+    } else {
+        // 처음 질문이면 뒤로 갈 수 없음
+        alert("이전 페이지가 없습니다.");
     }
 }

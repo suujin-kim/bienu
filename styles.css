@@ -3,13 +3,13 @@
 body {
     background-image: url('background.jpg'); 
     background-size: cover;
-    backdrop-filter: blur(2px); /* 흐림 정도를 조절하세요 */
+    backdrop-filter: blur(2px);
     margin: 0;
     font-family: 'Arial', sans-serif;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    flex-direction: column; /* 세로 방향으로 배치 */
+    height: 100%; /* 전체 높이를 차지 */
+    scroll-behavior: smooth; /* 스크롤 부드럽게 이동 */
 }
 
 .cover-container {
@@ -20,6 +20,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
+    margin-bottom: 20px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -27,7 +28,7 @@ body {
 
 .logo {
     max-width: 100px; /* 로고 이미지의 최대 너비를 조절하세요 */
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     transform: translateY(10px); 
 }
 
@@ -88,7 +89,7 @@ body {
 
 .question-container {
     width: 600px;
-    height: 800px;
+    height: 700px;
     text-align: center;
     background-color: rgba(215, 215, 215, 0.8);
     padding: 20px;
@@ -100,10 +101,13 @@ body {
     margin-right: auto;
 }
 
+
+
 #questionNumber {
     color: #0051f4; /* 문제 번호의 텍스트 색상을 파란색(#3366cc)으로 변경 */
     font-size: 40px; /* 문제 번호의 글꼴 크기를 24px로 변경 */
     font-weight: bold; /* 문제 번호의 글꼴을 굵게 설정 */
+    margin: 0 auto;
 }
 
 .question {
@@ -141,6 +145,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
+    margin-bottom: 20px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -178,7 +183,7 @@ button:hover {
 /* 결과 페이지 */
 .result-container {
     width: 600px;
-    height: 800px;
+    height: 1060px;
     text-align: center;
     background-color: rgba(215, 215, 215, 0.8);
     padding: 20px;
@@ -230,3 +235,106 @@ button:hover {
     height: auto;
     margin-top: 20px; /* 이미지 위 여백 */
 }
+
+
+
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 20px; /* 필요에 따라 여백 조절 */
+}
+
+.question-header {
+    display: flex;
+    align-items: center;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.progress-bar-container {
+    flex-grow: 1;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px; /* 막대바를 아래로 이동하는 값 조절 */
+    margin-left: 10px; /* 막대바를 오른쪽으로 이동하는 값 조절 */
+   
+}
+
+.progress-bar {
+    height: 20px;
+    width: var(--progress);
+    background-color: #1a35ff;
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
+   
+}
+
+
+
+
+.navigation-button {
+    font-size: 20px;
+    background-color: #1a35ff;
+    color: white;
+    border: 2px solid #1a35ff;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 6px 9px;
+    text-align: center;
+    position: relative; /* 상대 위치 지정 */
+}
+
+.navigation-button:hover {
+    background-color: #ffffff;
+    color: #0008ff;
+}
+
+.arrow {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative; /* 상대 위치 지정 */
+    top: -10px; /* 위로 이동하는 값 조절 */
+    left: -12px; /* 왼쪽으로 이동하는 값 조절 */
+}
+
+.loading-container {
+    display: none;
+    position: fixed; /* 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙에 위치 */
+    left: 50%; /* 화면 가로 중앙에 위치 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    background-color: rgba(255, 255, 255, 0.8); /* 반투명한 흰 배경색 */
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.loading-container {
+    display: none;
+    width: 600px;
+    height: 1060px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.loading-container p {
+    font-size: 20px;
+}
+

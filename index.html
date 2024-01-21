@@ -23,11 +23,20 @@
 
     <!--질문 페이지 내용 시작-->
     <div id="question-container" class="question-container" style="display: none;">
-        <div class="question-page-logo">
-            <img class="logo" src="logo.png" alt="로고 이미지">
+        <img class="logo" src="logo.png" alt="로고 이미지">
+
+        <div class="progress-container">
+            <!-- 이전 페이지로 이동하는 버튼 -->
+            <button class="navigation-button" onclick="goToPreviousQuestion()">◀️</button>
+            <!-- 진행률을 나타내는 막대바 -->
+            
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
         </div>
+
         <div class="question">
-            <p id="questionNumber"></p>
+            <p id="questionNumber" class="question-number"></p>
             <p id="questionText"></p>
             <div class="choices" id="choices"></div>
             <p class="undertitle2">with BIENU GLOBAL</p>
@@ -35,14 +44,31 @@
     </div>
     <!--질문 페이지 내용 끝-->
 
+<!-- 로딩 화면 -->
+    <div id="loading-container" class="loading-container">
+        <div class="question-page-logo">
+            <img class="logo" src="logo.png" alt="로고 이미지">
+        </div>
+        <div class="progress-container">
+            <!-- 이전 페이지로 이동하는 버튼 -->
+            <button class="navigation-button" onclick="goToPreviousQuestion()">◀️</button>
+            <!-- 진행률을 나타내는 막대바 -->
+            
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+        </div>
+        <p>Loading...</p>
+    </div>
+
+
+
+
     <!--결과 페이지 내용 시작-->
     <div id="result-container" class="result-container" style="display: none;">
         <div class="question-page-logo">
             <img class="logo" src="logo.png" alt="로고 이미지">
         </div>
-        <h1 class="title">Your Skin Type Result</h1>
-        <p id="resultText"></p>
-        <h1 class="routin-title">당신에게 꼭 맞는 스킨케어 루틴이에요</h1>
         <img id="resultImage" alt="Skin Type Image">
         <button id="infoButton" class="info-button">buy now!</button>
 
@@ -65,12 +91,20 @@
             if (infoButton) {
                 infoButton.addEventListener("click", redirectToInfoPage);
             }
+
+            window.scrollTo(0, 0);
+
         });
     
         function redirectToInfoPage() {
             // 버튼 클릭 시 링크로 이동
             window.location.href = "https://xn--vg1b07tv4f.com/";
         }
+
+        function goBack() {
+            history.back();
+        }
+
     </script>
 
 </body>
