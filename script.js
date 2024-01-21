@@ -144,11 +144,7 @@ function showNextQuestion() {
             var currentQuestion = questions[currentQuestionIndex];
             displayQuestion(currentQuestion);
         } else {
-            // 질문이 끝나면 로딩 화면을 나타내고 3초 후에 결과 페이지 표시
-            showLoadingScreen();
-            setTimeout(function () {
-                showResult();
-            }, 3000);
+            showResult();  
         }
     }
 }
