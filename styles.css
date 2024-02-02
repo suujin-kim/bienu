@@ -384,4 +384,103 @@ button:hover {
     #question-container {
         width: 100%;
     }
+
+    body {
+        background-image: url('background.jpg'); 
+        background-size: cover;
+        backdrop-filter: blur(2px);
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        scroll-behavior: smooth;
+    }
+    
+    .container {
+        width: 90%; /* 화면 너비의 90%를 차지하도록 수정 */
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* 커버 페이지 스타일 */
+    
+    .cover-container {
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .logo {
+        max-width: 80%; /* 로고 이미지의 최대 너비를 조절 */
+        margin-bottom: 20px;
+        transform: translateY(10px); 
+    }
+    
+    .test-title {
+        font-size: 5vw; /* vw 단위로 폰트 크기 지정 */
+        margin-bottom: 10px;
+    }
+    
+    .routin-title {
+        font-size: 4vw; /* vw 단위로 폰트 크기 지정 */
+        margin-bottom: 10px;
+    }
+    
+    .subtitle {
+        font-size: 3vw; /* vw 단위로 폰트 크기 지정 */
+        margin-bottom: 20px;
+    }
+    
+    .cover-image {
+        max-width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .participants-count {
+        font-size: 2vw; /* vw 단위로 폰트 크기 지정 */
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    
+    .start-button {
+        padding: 5px 10px;
+        font-size: 4vw; /* vw 단위로 폰트 크기 지정 */
+        margin-bottom: 30px;
+    }
+    
+    .undertitle {
+        font-size: 3vw; /* vw 단위로 폰트 크기 지정 */
+        margin-bottom: 10px;
+    }
+    
+    /* 질문 페이지 스타일 */
+    
+    .question-container {
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    #questionNumber {
+        font-size: 5vw; /* vw 단위로 폰트 크기 지정 */
+        font-weight: bold;
+        margin: 0 auto;
+    }
+    
+    .question {
+        margin-bottom: 30px;
+        font-size: 4vw; /* vw 단위로 폰트 크기 지정 */
+        max-width: 100%; /* 최대 넓이로 조정 */
+        text-align: center;
+        word-wrap: break-word;
+    }
+    
+    .choices {
+        display: flex;
+        flex-direction: column;
+    }
 }
