@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What is your skin type?</title>
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         <img class="cover-image" src="cover_image.jpg" alt="커버 사진" id="coverImage">
         <div class="participants-count" id="participantsCount">Up to now, 0 people have participated in this test.</div>
         <button class="start-button" onclick="startTest()">START</button>
-        <p class="undertitle">with BIENU GLOBAL</p>
+        <p class="undertitle">with BIEN:U GLOBAL</p>
     </div>
     <!--커버 페이지 내용 끝-->
 
@@ -39,27 +40,20 @@
             <p id="questionNumber" class="question-number"></p>
             <p id="questionText"></p>
             <div class="choices" id="choices"></div>
-            <p class="undertitle2">with BIENU GLOBAL</p>
+
         </div>
     </div>
     <!--질문 페이지 내용 끝-->
 
-<!-- 로딩 화면 
+
+
+
     <div id="loading-container" class="loading-container">
-        <div class="question-page-logo">
-            <img class="logo" src="logo.png" alt="로고 이미지">
+        <div class="loading-icon">
+            <div class="icon"></div>
+            <span>Analyzing...</span>
         </div>
-        <div class="progress-container">
-            이전 페이지로 이동하는 버튼 
-            <button class="navigation-button" onclick="goToPreviousQuestion()">◀️</button>
-            진행률을 나타내는 막대바 
-            
-            <div class="progress-bar-container">
-                <div id="progressBar" class="progress-bar"></div>
-            </div>
-        </div>
-        <p>Loading...</p>
-    </div>-->
+    </div>
 
 
 
@@ -70,7 +64,10 @@
             <img class="logo" src="logo.png" alt="로고 이미지">
         </div>
         <img id="resultImage" alt="Skin Type Image">
+        <button id="retryButton" class="retry-button" onclick="retryTest()">↻</button>
         <button id="infoButton" class="info-button">buy now!</button>
+        <p class="undertitle">with BIEN:U GLOBAL</p>
+        
 
     </div>
 
@@ -80,6 +77,14 @@
             font-size: 25px; /* 버튼의 폰트 크기 조절 */
             padding: 15px 30px; /* 버튼의 내부 여백을 조절하여 크기 조절 */
             border-radius: 20px;
+        }
+
+        .retry-button {
+        font-size: 25px; /* 버튼의 폰트 크기 조절 */
+        padding: 10px 15px; /* 버튼의 내부 여백을 조절하여 크기 조절 */
+        border-radius: 50%;
+        margin-top: 20px; /* 버튼과 다시하기 버튼 간의 간격 조절 */
+        margin-right : 15px;
         }
     </style>
 
@@ -104,6 +109,36 @@
         function goBack() {
             history.back();
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+        // 이벤트 리스너 등록
+        var infoButton = document.getElementById("infoButton");
+        var retryButton = document.getElementById("retryButton");
+
+        if (infoButton) {
+            infoButton.addEventListener("click", redirectToInfoPage);
+        }
+
+        if (retryButton) {
+            retryButton.addEventListener("click", retryTest);
+        }
+
+        window.scrollTo(0, 0);
+    });
+
+    function redirectToInfoPage() {
+    // 결과에 따른 링크 가져오기
+    var result = calculateResult();
+    var resultLink = getResultLink(result);
+
+    // 결과 페이지에 맞는 동적 링크로 이동
+    window.location.href = resultLink;
+}
+
+    function retryTest() {
+        // 버튼 클릭 시 테스트 커버 페이지로 이동
+        window.location.href = "첫 페이지 링크 첨부하기r";
+    }
 
     </script>
 

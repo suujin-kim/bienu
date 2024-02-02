@@ -234,6 +234,7 @@ button:hover {
     max-width: 100%;
     height: auto;
     margin-top: 20px; /* 이미지 위 여백 */
+    border-radius: 10px; /* 테두리 둥글게 설정 */
 }
 
 
@@ -307,34 +308,80 @@ button:hover {
     left: -12px; /* 왼쪽으로 이동하는 값 조절 */
 }
 
+
 .loading-container {
     display: none;
     position: fixed; /* 화면에 고정 */
     top: 50%; /* 화면 세로 중앙에 위치 */
     left: 50%; /* 화면 가로 중앙에 위치 */
     transform: translate(-50%, -50%); /* 중앙 정렬 */
-    background-color: rgba(255, 255, 255, 0.8); /* 반투명한 흰 배경색 */
+    background-color: rgba(255, 255, 255, 0.886); /* 반투명한 흰 배경색 */
     border-radius: 10px;
     padding: 20px;
     z-index: 1000; /* 다른 요소 위에 표시 */
+    max-width: 600px; /* 최대 넓이 설정 */
 }
 
-.loading-container {
-    display: none;
-    width: 600px;
-    height: 1060px;
-    background-color: rgb(255, 255, 255);
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
+#loading-container.analysis {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#loading-container.analysis p {
+    font-size: 24px;
     margin-bottom: 20px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 
-.loading-container p {
-    font-size: 20px;
+#loading-container .loading-icon {
+    /* 로딩 아이콘 및 텍스트 컨테이너 스타일 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
 }
 
+#loading-container .loading-icon .icon {
+    /* 로딩 아이콘 스타일 */
+    content: "";
+    display: inline-block;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #001eff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+#loading-container .loading-icon span {
+    /* "분석 중..." 글자 스타일 */
+    margin-top: 10px; /* 아이콘과 글자 간의 간격 조절 */
+    font-size: 20px; /* 글자 크기 조절 */
+}
+
+/* 로딩 아이콘 회전 애니메이션 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.cover-image, #resultImage {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* PC 화면 스타일 */
+
+/* 모바일 화면에 대한 스타일 */
+
+@media only screen and (max-width: 600px) {
+    /* 모바일에 맞는 스타일 적용 */
+    /* 예시: #question-container의 너비를 100%로 설정 */
+    #question-container {
+        width: 100%;
+    }
+}
